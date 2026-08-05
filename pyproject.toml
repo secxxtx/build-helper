@@ -1,0 +1,8 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "build-helper"
+version = "1.0.0"
+description = "Build helper utility for local build cache"
